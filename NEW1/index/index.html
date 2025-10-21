@@ -1,0 +1,99 @@
+ <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio — Your Name</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container">
+      <h1 class="site-title">Your Name</h1>
+      <button id="navToggle" aria-expanded="false" aria-controls="primary-nav" class="nav-toggle">Menu</button>
+      <nav id="primary-nav" class="primary-nav" role="navigation">
+        <ul>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" aria-pressed="false" class="theme-toggle">Toggle theme</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="hero" class="hero">
+      <div class="container">
+        <h2>Hi — I'm Your Name</h2>
+        <p>Short pitch about what you build.</p>
+      </div>
+    </section>
+
+    <section id="projects" class="projects container">
+      <h2>Projects</h2>
+
+      <!-- Project card (accessible + animated) -->
+      <article class="project-card" tabindex="0" aria-labelledby="proj1-title">
+        <img src="project1-thumb.jpg" alt="Screenshot of Project One" loading="lazy">
+        <h3 id="proj1-title">Project One</h3>
+        <p>Short description of Project One.</p>
+        <a href="https://example.com/project1" class="btn" target="_blank" rel="noopener">View project</a>
+      </article>
+
+      <!-- Image gallery extra (lazy) -->
+      <div class="gallery" aria-label="Project screenshots">
+        <h3>Gallery</h3>
+        <button class="gallery-item" data-full="img1-large.jpg">
+          <img src="img1-thumb.jpg" alt="Gallery image 1" loading="lazy">
+        </button>
+        <button class="gallery-item" data-full="img2-large.jpg">
+          <img src="img2-thumb.jpg" alt="Gallery image 2" loading="lazy">
+        </button>
+        <!-- lightbox container -->
+        <div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="Image viewer">
+          <button id="lbClose" class="lb-close">Close</button>
+          <img id="lbImg" alt="">
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="container">
+      <h2>About</h2>
+      <p>Short biography and skills list.</p>
+    </section>
+
+    <section id="contact" class="container">
+      <h2>Contact</h2>
+      <!-- Contact form extra -->
+      <form id="contactForm" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" required aria-required="true">
+          <div class="error" id="err-name" aria-live="polite"></div>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required aria-required="true">
+          <div class="error" id="err-email" aria-live="polite"></div>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" required aria-required="true"></textarea>
+          <div class="error" id="err-message" aria-live="polite"></div>
+        </div>
+        <button type="submit" class="btn">Send</button>
+        <div id="formStatus" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer container" role="contentinfo">
+    <p>© Your Name — <a href="/privacy">Privacy</a></p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

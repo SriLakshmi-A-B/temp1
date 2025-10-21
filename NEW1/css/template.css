@@ -1,0 +1,82 @@
+ :root{
+  --bg: #ffffff;
+  --fg: #111111;
+  --accent: #0077cc;
+  --radius: 10px;
+  --maxWidth: 1000px;
+}
+[data-theme="dark"]{
+  --bg: #0b0b0d;
+  --fg: #f3f3f3;
+  --accent: #4da6ff;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui,Segoe UI,Roboto,Helvetica,Arial;
+  color:var(--fg);
+  background:var(--bg);
+  line-height:1.45;
+}
+.container{max-width:var(--maxWidth);margin:0 auto;padding:1rem;}
+
+.skip-link{
+  position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;
+}
+.skip-link:focus{left:0;top:0;background:#000;color:#fff;padding:.5rem;z-index:9999;}
+
+.site-header{border-bottom:1px solid rgba(0,0,0,.06)}
+.site-title{margin:0;padding:.5rem 0;display:inline-block}
+.primary-nav ul{list-style:none;padding:0;margin:0;display:flex;gap:1rem}
+.primary-nav a{color:var(--fg);text-decoration:none}
+
+.theme-toggle,.nav-toggle{margin-left:1rem}
+
+/* Projects grid */
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;padding:1rem 0}
+
+/* Card with subtle animation */
+.project-card{
+  background:linear-gradient(180deg, rgba(255,255,255,.02), transparent);
+  border-radius:var(--radius);
+  padding:1rem;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+  transition:transform .25s ease, box-shadow .25s ease;
+  outline: none;
+}
+.project-card:focus,
+.project-card:hover{
+  transform: translateY(-6px);
+  box-shadow:0 12px 30px rgba(0,0,0,.12);
+}
+
+/* Respect reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .project-card{transition:none}
+}
+
+/* Responsive navigation: mobile first */
+.primary-nav{display:none}
+.nav-open .primary-nav{display:block}
+@media(min-width:720px){
+  .primary-nav{display:block!important}
+  .nav-toggle{display:none}
+}
+
+/* Buttons */
+.btn{display:inline-block;padding:.5rem .9rem;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;border:none}
+
+/* Lightbox */
+.lightbox{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.85)}
+.lb-close{position: absolute; top:1rem; right:1rem;}
+
+/* simple accessible form styles */
+.field{margin-bottom:1rem}
+label{display:block;margin-bottom:.25rem}
+input,textarea{width:100%;padding:.5rem;border:1px solid #ccc;border-radius:6px}
+.error{color:#b00020;font-size:.95rem}
+
+/* small utility for container */
+.container p{margin-top:0}
